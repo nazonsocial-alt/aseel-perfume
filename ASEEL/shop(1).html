@@ -1,0 +1,220 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Shop All Fragrances | ASEEL Perfume</title>
+<meta name="description" content="Browse the full ASEEL Perfume collection. Filter by category and price, sort by newest or popularity, and find your signature scent.">
+<link rel="canonical" href="https://aseelperfume.com/shop.html">
+<meta property="og:type" content="website">
+<meta property="og:title" content="Shop All Fragrances | ASEEL Perfume">
+<meta property="og:description" content="Browse the full ASEEL Perfume collection — oud, floral, fresh and amber fragrances for men and women.">
+<meta property="og:url" content="https://aseelperfume.com/shop.html">
+<link rel="icon" href="data:image/svg+xml,<svg xmlns=%22http://www.w3.org/2000/svg%22 viewBox=%220 0 100 100%22><text y=%22.9em%22 font-size=%2290%22>\u2728</text></svg>">
+<link rel="stylesheet" href="css/style.css">
+<link rel="stylesheet" href="css/responsive.css">
+</head>
+<body>
+
+<header class="navbar">
+  <div class="container nav-inner">
+    <a href="index.html" class="nav-logo">ASEEL<span>.</span></a>
+    <nav class="nav-links">
+      <a href="index.html">Home</a>
+      <a href="shop.html" class="active">Shop</a>
+      <a href="about.html">About</a>
+      <a href="contact.html">Contact</a>
+    </nav>
+    <div class="nav-actions">
+      <button class="btn btn-outline" style="padding:10px 22px" onclick="location.href='contact.html'">Get in Touch</button>
+      <a href="cart.html" class="nav-icon-btn" aria-label="Cart">&#128717;<span class="cart-count">0</span></a>
+      <button class="nav-toggle" aria-label="Open menu"><span></span><span></span><span></span></button>
+    </div>
+  </div>
+</header>
+
+<div class="mobile-menu">
+  <button class="mobile-menu-close" aria-label="Close menu">&times;</button>
+  <a href="index.html">Home</a>
+  <a href="shop.html">Shop</a>
+  <a href="about.html">About</a>
+  <a href="contact.html">Contact</a>
+  <a href="cart.html">Cart</a>
+</div>
+
+<header class="page-header">
+  <div class="container">
+    <h1>Shop All Fragrances</h1>
+    <div class="breadcrumb"><a href="index.html">Home</a> / Shop</div>
+  </div>
+</header>
+
+<main>
+<section>
+  <div class="container">
+    <div class="shop-layout">
+      <aside class="filter-sidebar" id="filter-sidebar">
+        <div class="search-box">
+          <input type="text" id="search-input" placeholder="Search fragrances...">
+          <span class="search-icon">&#128269;</span>
+        </div>
+        <div class="filter-block">
+          <h4>Category</h4>
+          <div class="filter-list" id="category-filters">
+            <label><input type="checkbox" value="Men"> Men</label>
+            <label><input type="checkbox" value="Women"> Women</label>
+            <label><input type="checkbox" value="Unisex"> Unisex</label>
+          </div>
+        </div>
+        <div class="filter-block">
+          <h4>Price Range</h4>
+          <input type="range" min="3000" max="7000" step="100" value="7000" class="price-range" id="price-range">
+          <div class="price-range-labels"><span>&#09F3;3,000</span><span id="price-range-val">&#09F3;7,000</span></div>
+        </div>
+        <a href="#" class="clear-filters" id="clear-filters">Clear all filters</a>
+      </aside>
+
+      <div>
+        <div class="shop-toolbar">
+          <span class="result-count" id="result-count">12 products</span>
+          <div style="display:flex;gap:12px;align-items:center">
+            <button class="btn btn-outline mobile-filter-toggle" style="display:none;padding:10px 18px" id="mobile-filter-toggle">Filters</button>
+            <select class="sort-select" id="sort-select">
+              <option value="default">Sort: Featured</option>
+              <option value="newest">Newest</option>
+              <option value="popular">Most Popular</option>
+              <option value="price-low">Price: Low to High</option>
+              <option value="price-high">Price: High to Low</option>
+            </select>
+          </div>
+        </div>
+        <div class="product-grid" id="shop-grid"></div>
+        <div class="pagination" id="pagination"></div>
+      </div>
+    </div>
+  </div>
+</section>
+</main>
+
+<footer class="footer">
+  <div class="container">
+    <div class="footer-grid">
+      <div class="footer-col">
+        <div class="footer-logo">ASEEL<span>.</span></div>
+        <p>A premium Bangladeshi perfume house crafting luxury fragrances for men and women. Luxury in every drop.</p>
+        <div class="social-row">
+          <a href="https://facebook.com" target="_blank" rel="noopener" aria-label="Facebook">f</a>
+          <a href="https://instagram.com" target="_blank" rel="noopener" aria-label="Instagram">ig</a>
+          <a href="https://wa.me/8801XXXXXXXXX" target="_blank" rel="noopener" aria-label="WhatsApp">wa</a>
+        </div>
+      </div>
+      <div class="footer-col">
+        <h4>Quick Links</h4>
+        <ul><li><a href="index.html">Home</a></li><li><a href="shop.html">Shop</a></li><li><a href="about.html">About Us</a></li><li><a href="contact.html">Contact</a></li></ul>
+      </div>
+      <div class="footer-col">
+        <h4>Categories</h4>
+        <ul><li><a href="shop.html?category=Men">Men</a></li><li><a href="shop.html?category=Women">Women</a></li><li><a href="shop.html?category=Unisex">Unisex</a></li><li><a href="shop.html">All Products</a></li></ul>
+      </div>
+      <div class="footer-col">
+        <h4>Customer Service</h4>
+        <ul><li><a href="cart.html">My Cart</a></li><li><a href="privacy.html">Privacy Policy</a></li><li><a href="terms.html">Terms &amp; Conditions</a></li><li><a href="contact.html">Contact Us</a></li></ul>
+      </div>
+    </div>
+    <div class="footer-bottom">
+      <span>&copy; <span class="current-year"></span> ASEEL Perfume. All rights reserved.</span>
+      <div class="footer-legal"><a href="privacy.html">Privacy</a><a href="terms.html">Terms</a></div>
+    </div>
+  </div>
+</footer>
+
+<div class="modal-overlay" id="quickview-overlay">
+  <div class="modal-box">
+    <button class="modal-close" aria-label="Close">&times;</button>
+    <div class="modal-media"></div>
+    <div class="modal-info"></div>
+  </div>
+</div>
+
+<script src="js/products.js"></script>
+<script src="js/cart.js"></script>
+<script src="js/main.js"></script>
+<script>
+(function () {
+  const PAGE_SIZE = 6;
+  let currentPage = 1;
+  const params = new URLSearchParams(window.location.search);
+  const initialCategory = params.get('category');
+  if (initialCategory) {
+    const box = document.querySelector(`#category-filters input[value="${initialCategory}"]`);
+    if (box) box.checked = true;
+  }
+
+  function getFiltered() {
+    const search = document.getElementById('search-input').value.trim().toLowerCase();
+    const checkedCats = Array.from(document.querySelectorAll('#category-filters input:checked')).map(c => c.value);
+    const maxPrice = Number(document.getElementById('price-range').value);
+    const sort = document.getElementById('sort-select').value;
+
+    let list = PRODUCTS.filter(p => {
+      const matchSearch = !search || p.name.toLowerCase().includes(search) || p.category.toLowerCase().includes(search);
+      const matchCat = !checkedCats.length || checkedCats.includes(p.category);
+      const matchPrice = p.price <= maxPrice;
+      return matchSearch && matchCat && matchPrice;
+    });
+
+    if (sort === 'newest') list = list.slice().sort((a, b) => (b.isNew === a.isNew) ? 0 : b.isNew ? 1 : -1);
+    else if (sort === 'popular') list = list.slice().sort((a, b) => b.reviews - a.reviews);
+    else if (sort === 'price-low') list = list.slice().sort((a, b) => a.price - b.price);
+    else if (sort === 'price-high') list = list.slice().sort((a, b) => b.price - a.price);
+
+    return list;
+  }
+
+  function renderShop() {
+    const list = getFiltered();
+    document.getElementById('result-count').textContent = `${list.length} product${list.length !== 1 ? 's' : ''}`;
+    const totalPages = Math.max(1, Math.ceil(list.length / PAGE_SIZE));
+    currentPage = Math.min(currentPage, totalPages);
+    const pageItems = list.slice((currentPage - 1) * PAGE_SIZE, currentPage * PAGE_SIZE);
+    renderProductGrid(pageItems, '#shop-grid');
+    refreshReveal();
+
+    const pag = document.getElementById('pagination');
+    if (totalPages <= 1) { pag.innerHTML = ''; return; }
+    let html = `<button ${currentPage === 1 ? 'disabled' : ''} id="pg-prev">&larr;</button>`;
+    for (let i = 1; i <= totalPages; i++) {
+      html += `<button class="${i === currentPage ? 'active' : ''}" data-page="${i}">${i}</button>`;
+    }
+    html += `<button ${currentPage === totalPages ? 'disabled' : ''} id="pg-next">&rarr;</button>`;
+    pag.innerHTML = html;
+    pag.querySelectorAll('[data-page]').forEach(b => b.addEventListener('click', () => { currentPage = Number(b.dataset.page); renderShop(); window.scrollTo({top: document.querySelector('.shop-layout').offsetTop - 100, behavior:'smooth'}); }));
+    const prev = document.getElementById('pg-prev'); if (prev) prev.addEventListener('click', () => { currentPage--; renderShop(); });
+    const next = document.getElementById('pg-next'); if (next) next.addEventListener('click', () => { currentPage++; renderShop(); });
+  }
+
+  document.getElementById('search-input').addEventListener('input', () => { currentPage = 1; renderShop(); });
+  document.querySelectorAll('#category-filters input').forEach(cb => cb.addEventListener('change', () => { currentPage = 1; renderShop(); }));
+  document.getElementById('price-range').addEventListener('input', (e) => {
+    document.getElementById('price-range-val').textContent = fmtPrice(Number(e.target.value));
+    currentPage = 1; renderShop();
+  });
+  document.getElementById('sort-select').addEventListener('change', () => { currentPage = 1; renderShop(); });
+  document.getElementById('clear-filters').addEventListener('click', (e) => {
+    e.preventDefault();
+    document.getElementById('search-input').value = '';
+    document.querySelectorAll('#category-filters input').forEach(cb => cb.checked = false);
+    document.getElementById('price-range').value = 7000;
+    document.getElementById('price-range-val').textContent = fmtPrice(7000);
+    document.getElementById('sort-select').value = 'default';
+    currentPage = 1; renderShop();
+  });
+  document.getElementById('mobile-filter-toggle').addEventListener('click', () => {
+    document.getElementById('filter-sidebar').classList.toggle('open');
+  });
+
+  renderShop();
+})();
+</script>
+</body>
+</html>

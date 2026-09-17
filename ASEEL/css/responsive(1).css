@@ -1,0 +1,81 @@
+/* =========================================================
+   ASEEL PERFUME — RESPONSIVE STYLES
+   ========================================================= */
+
+/* -------------------- Laptop (<=1200px) -------------------- */
+@media (max-width: 1200px) {
+  .grid-4 { grid-template-columns: repeat(3, 1fr); }
+  .product-grid { grid-template-columns: repeat(2, 1fr); }
+  .story-grid, .contact-grid { gap: 44px; }
+  .checkout-layout { grid-template-columns: 1fr 340px; gap: 40px; }
+}
+
+/* -------------------- Tablet (<=1024px) -------------------- */
+@media (max-width: 1024px) {
+  .container { padding: 0 26px; }
+  .nav-links { gap: 26px; }
+  .hero-inner { grid-template-columns: 1fr; text-align: center; }
+  .hero p { margin: 0 auto 36px; }
+  .hero-cta { justify-content: center; }
+  .hero-visual { max-width: 340px; margin: 0 auto; }
+  .grid-3 { grid-template-columns: repeat(2, 1fr); }
+  .story-grid { grid-template-columns: 1fr; }
+  .story-visual { max-width: 420px; margin: 0 auto; }
+  .shop-layout { grid-template-columns: 220px 1fr; gap: 32px; }
+  .product-detail-grid { grid-template-columns: 1fr; gap: 40px; }
+  .cart-layout { grid-template-columns: 1fr; }
+  .checkout-layout { grid-template-columns: 1fr; }
+  .contact-grid { grid-template-columns: 1fr; }
+  .insta-grid { grid-template-columns: repeat(4, 1fr); }
+}
+
+/* -------------------- Small tablet / large mobile (<=900px) -------------------- */
+@media (max-width: 900px) {
+  .nav-links, .nav-actions .btn-outline { display: none; }
+  .nav-toggle { display: flex; }
+  .nav-actions { gap: 14px; }
+  .grid-4 { grid-template-columns: repeat(2, 1fr); }
+  .product-grid { grid-template-columns: repeat(2, 1fr); }
+  .shop-layout { grid-template-columns: 1fr; }
+  .filter-sidebar { display: none; }
+  .filter-sidebar.open { display: block; margin-bottom: 30px; }
+  .mobile-filter-toggle { display: inline-flex !important; }
+}
+
+/* -------------------- Mobile (<=640px) -------------------- */
+@media (max-width: 640px) {
+  section { padding: 56px 0; }
+  .container { padding: 0 20px; }
+  .grid-3, .grid-4, .grid-2, .product-grid { grid-template-columns: 1fr 1fr; gap: 16px; }
+  .footer-grid { grid-template-columns: 1fr 1fr; gap: 36px; }
+  .footer-bottom { flex-direction: column; text-align: center; }
+  .hero { min-height: 92vh; }
+  .hero-cta { flex-direction: column; width: 100%; }
+  .hero-cta .btn { width: 100%; }
+  .page-header { padding: 150px 0 70px; }
+  .value-row { flex-direction: column; }
+  .insta-grid { grid-template-columns: repeat(3, 1fr); }
+  .newsletter-form { flex-direction: column; }
+  .review-summary { flex-direction: column; align-items: flex-start; gap: 20px; }
+  .modal-box { grid-template-columns: 1fr; max-height: 92vh; overflow-y: auto; }
+  .modal-media { aspect-ratio: 4/3; }
+  .detail-tabs { gap: 24px; overflow-x: auto; }
+  .notes-pyramid { grid-template-columns: 1fr; gap: 18px; }
+  .form-row { grid-template-columns: 1fr; }
+  .cart-table thead { display: none; }
+  .cart-table, .cart-table tbody, .cart-table tr, .cart-table td { display: block; width: 100%; }
+  .cart-table tr { padding: 20px 0; border-bottom: 1px solid var(--color-border); }
+  .cart-table td { border: none; padding: 8px 0; }
+  .cart-product { align-items: flex-start; }
+  .timeline { padding-left: 30px; }
+  .timeline-item::before { left: -30px; }
+}
+
+/* -------------------- Extra small (<=420px) -------------------- */
+@media (max-width: 420px) {
+  .grid-3, .grid-4, .grid-2, .product-grid, .footer-grid { grid-template-columns: 1fr; }
+  .insta-grid { grid-template-columns: repeat(2, 1fr); }
+  h1 { font-size: 2.1rem; }
+  .error-page .code { font-size: 5.4rem; }
+  .toast { left: 20px; right: 20px; bottom: 20px; }
+}

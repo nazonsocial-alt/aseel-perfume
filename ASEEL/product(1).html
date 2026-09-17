@@ -1,0 +1,236 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title id="page-title">Product | ASEEL Perfume</title>
+<meta id="meta-desc" name="description" content="Discover ASEEL's premium perfume collection — notes, ingredients and reviews.">
+<link rel="canonical" href="https://aseelperfume.com/product.html">
+<meta property="og:type" content="product">
+<meta id="og-title" property="og:title" content="ASEEL Perfume">
+<link rel="icon" href="data:image/svg+xml,<svg xmlns=%22http://www.w3.org/2000/svg%22 viewBox=%220 0 100 100%22><text y=%22.9em%22 font-size=%2290%22>\u2728</text></svg>">
+<link rel="stylesheet" href="css/style.css">
+<link rel="stylesheet" href="css/responsive.css">
+</head>
+<body>
+
+<header class="navbar">
+  <div class="container nav-inner">
+    <a href="index.html" class="nav-logo">ASEEL<span>.</span></a>
+    <nav class="nav-links">
+      <a href="index.html">Home</a>
+      <a href="shop.html" class="active">Shop</a>
+      <a href="about.html">About</a>
+      <a href="contact.html">Contact</a>
+    </nav>
+    <div class="nav-actions">
+      <button class="btn btn-outline" style="padding:10px 22px" onclick="location.href='shop.html'">Continue Shopping</button>
+      <a href="cart.html" class="nav-icon-btn" aria-label="Cart">&#128717;<span class="cart-count">0</span></a>
+      <button class="nav-toggle" aria-label="Open menu"><span></span><span></span><span></span></button>
+    </div>
+  </div>
+</header>
+
+<div class="mobile-menu">
+  <button class="mobile-menu-close" aria-label="Close menu">&times;</button>
+  <a href="index.html">Home</a>
+  <a href="shop.html">Shop</a>
+  <a href="about.html">About</a>
+  <a href="contact.html">Contact</a>
+  <a href="cart.html">Cart</a>
+</div>
+
+<main>
+<section style="padding-top:150px" id="product-detail-wrap"></section>
+
+<section id="related-section" style="background:var(--color-accent-bg)">
+  <div class="container">
+    <div class="section-head">
+      <span class="eyebrow">You May Also Like</span>
+      <h2>Related Products</h2>
+      <div class="divider"></div>
+    </div>
+    <div class="product-grid grid-4" id="related-grid"></div>
+  </div>
+</section>
+</main>
+
+<footer class="footer">
+  <div class="container">
+    <div class="footer-grid">
+      <div class="footer-col">
+        <div class="footer-logo">ASEEL<span>.</span></div>
+        <p>A premium Bangladeshi perfume house crafting luxury fragrances for men and women. Luxury in every drop.</p>
+        <div class="social-row">
+          <a href="https://facebook.com" target="_blank" rel="noopener" aria-label="Facebook">f</a>
+          <a href="https://instagram.com" target="_blank" rel="noopener" aria-label="Instagram">ig</a>
+          <a href="https://wa.me/8801XXXXXXXXX" target="_blank" rel="noopener" aria-label="WhatsApp">wa</a>
+        </div>
+      </div>
+      <div class="footer-col">
+        <h4>Quick Links</h4>
+        <ul><li><a href="index.html">Home</a></li><li><a href="shop.html">Shop</a></li><li><a href="about.html">About Us</a></li><li><a href="contact.html">Contact</a></li></ul>
+      </div>
+      <div class="footer-col">
+        <h4>Categories</h4>
+        <ul><li><a href="shop.html?category=Men">Men</a></li><li><a href="shop.html?category=Women">Women</a></li><li><a href="shop.html?category=Unisex">Unisex</a></li><li><a href="shop.html">All Products</a></li></ul>
+      </div>
+      <div class="footer-col">
+        <h4>Customer Service</h4>
+        <ul><li><a href="cart.html">My Cart</a></li><li><a href="privacy.html">Privacy Policy</a></li><li><a href="terms.html">Terms &amp; Conditions</a></li><li><a href="contact.html">Contact Us</a></li></ul>
+      </div>
+    </div>
+    <div class="footer-bottom">
+      <span>&copy; <span class="current-year"></span> ASEEL Perfume. All rights reserved.</span>
+      <div class="footer-legal"><a href="privacy.html">Privacy</a><a href="terms.html">Terms</a></div>
+    </div>
+  </div>
+</footer>
+
+<div class="modal-overlay" id="quickview-overlay">
+  <div class="modal-box">
+    <button class="modal-close" aria-label="Close">&times;</button>
+    <div class="modal-media"></div>
+    <div class="modal-info"></div>
+  </div>
+</div>
+
+<script src="js/products.js"></script>
+<script src="js/cart.js"></script>
+<script src="js/main.js"></script>
+<script>
+(function () {
+  const params = new URLSearchParams(window.location.search);
+  const id = params.get('id') || PRODUCTS[0].id;
+  const p = getProductById(id) || PRODUCTS[0];
+  let selectedSize = p.sizes[1];
+  let qty = 1;
+
+  document.getElementById('page-title').textContent = p.name + ' | ASEEL Perfume';
+  document.getElementById('meta-desc').setAttribute('content', p.short);
+  document.getElementById('og-title').setAttribute('content', p.name + ' | ASEEL Perfume');
+
+  function starsRow(n) {
+    let html = '';
+    for (let i = 1; i <= 5; i++) {
+      const pct = Math.max(0, Math.min(1, n - (i - 1))) * 100;
+      html += `<span style="position:relative;display:inline-block"><span style="color:#e5decf">&#9733;</span><span style="position:absolute;left:0;top:0;width:${pct}%;overflow:hidden;color:var(--color-secondary)">&#9733;</span></span>`;
+    }
+    return html;
+  }
+
+  function render() {
+    const priceHTML = p.oldPrice
+      ? `<span class="price-now">${fmtPrice(p.price)}</span><span class="price-old">${fmtPrice(p.oldPrice)}</span>`
+      : `<span class="price-now">${fmtPrice(p.price)}</span>`;
+
+    document.getElementById('product-detail-wrap').innerHTML = `
+    <div class="container">
+      <div class="breadcrumb" style="color:var(--color-text-muted);margin-bottom:34px">
+        <a href="index.html" style="color:var(--color-text-muted)">Home</a> / <a href="shop.html" style="color:var(--color-text-muted)">Shop</a> / ${p.name}
+      </div>
+      <div class="product-detail-grid">
+        <div>
+          <div class="gallery-main" id="gallery-main">${bottleSVG(p.art)}</div>
+          <div class="gallery-thumbs">
+            <button class="active" data-art="${p.art}">${bottleSVG(p.art)}</button>
+            <button data-art="gold">${bottleSVG('gold')}</button>
+            <button data-art="noir">${bottleSVG('noir')}</button>
+          </div>
+        </div>
+        <div>
+          <span class="detail-cat">${p.category}</span>
+          <h1 class="detail-title">${p.name}</h1>
+          <div class="detail-rating">${starsRow(p.rating)} <span>${p.rating} (${p.reviews} reviews)</span></div>
+          <div class="detail-price">${priceHTML}</div>
+          <p class="detail-desc">${p.description}</p>
+
+          <div class="size-row" id="size-row">
+            ${p.sizes.map((s, i) => `<button class="size-opt ${i === 1 ? 'active' : ''}" data-size="${s}">${s}</button>`).join('')}
+          </div>
+
+          <div class="qty-row">
+            <div class="qty-control">
+              <button id="qty-minus">&minus;</button><span id="qty-val">1</span><button id="qty-plus">+</button>
+            </div>
+            <span style="font-size:0.85rem;color:var(--color-text-muted)">${p.stock > 0 ? p.stock + ' in stock' : 'Currently unavailable'}</span>
+          </div>
+
+          <div class="detail-actions">
+            <button class="btn btn-primary" id="detail-add-cart" style="flex:1" ${p.stock === 0 ? 'disabled' : ''}>${p.stock === 0 ? 'Out of Stock' : 'Add to Cart'}</button>
+            <button class="icon-circle wishlist-btn ${isInWishlist(p.id) ? 'active' : ''}" data-id="${p.id}" style="width:52px;height:52px">&#9825;</button>
+          </div>
+
+          <div class="detail-meta">
+            <div><strong>SKU:</strong> ASEEL-${p.id.toUpperCase()}</div>
+            <div><strong>Category:</strong> ${p.category}</div>
+            <div><strong>Delivery:</strong> Confirmed via WhatsApp after order placement</div>
+          </div>
+        </div>
+      </div>
+
+      <div class="detail-tabs">
+        <button class="detail-tab-btn active" data-tab="tab-desc">Description</button>
+        <button class="detail-tab-btn" data-tab="tab-notes">Notes</button>
+        <button class="detail-tab-btn" data-tab="tab-ingredients">Ingredients</button>
+        <button class="detail-tab-btn" data-tab="tab-reviews">Reviews (${p.reviews})</button>
+      </div>
+      <div>
+        <div class="detail-tab-panel active" id="tab-desc"><p>${p.description}</p></div>
+        <div class="detail-tab-panel" id="tab-notes">
+          <div class="notes-pyramid">
+            <div><h4>Top Notes</h4><p>${p.notes.top}</p></div>
+            <div><h4>Heart Notes</h4><p>${p.notes.middle}</p></div>
+            <div><h4>Base Notes</h4><p>${p.notes.base}</p></div>
+          </div>
+        </div>
+        <div class="detail-tab-panel" id="tab-ingredients"><p>${p.ingredients}</p></div>
+        <div class="detail-tab-panel" id="tab-reviews">
+          <div class="review-summary">
+            <div class="review-score">
+              <strong>${p.rating}</strong>
+              <span class="stars">${starString(p.rating)}</span>
+              <span style="font-size:0.82rem;color:var(--color-text-muted)">${p.reviews} reviews</span>
+            </div>
+            <div style="flex:1;width:100%">
+              ${[5,4,3,2,1].map(n => `<div class="bar-row"><span>${n}&#9733;</span><div class="bar-track"><div class="bar-fill" style="width:${n === Math.round(p.rating) ? 72 : n === Math.round(p.rating)-1 ? 18 : 4}%"></div></div></div>`).join('')}
+            </div>
+          </div>
+          <div class="detail-review">
+            <div class="review-author"><div class="review-avatar">A</div><div><strong>Verified Buyer</strong><span class="stars" style="display:block;font-size:0.8rem">${starString(p.rating)}</span></div></div>
+            <p>${p.short} Exactly as described and arrived well packaged.</p>
+          </div>
+        </div>
+      </div>
+    </div>`;
+
+    document.querySelectorAll('.gallery-thumbs button').forEach(btn => {
+      btn.addEventListener('click', () => {
+        document.querySelectorAll('.gallery-thumbs button').forEach(b => b.classList.remove('active'));
+        btn.classList.add('active');
+        document.getElementById('gallery-main').innerHTML = bottleSVG(btn.dataset.art);
+      });
+    });
+    document.getElementById('gallery-main').addEventListener('click', function () { this.classList.toggle('zoomed'); });
+
+    document.querySelectorAll('.size-opt').forEach(btn => btn.addEventListener('click', () => {
+      document.querySelectorAll('.size-opt').forEach(b => b.classList.remove('active'));
+      btn.classList.add('active');
+      selectedSize = btn.dataset.size;
+    }));
+    document.getElementById('qty-minus').addEventListener('click', () => { if (qty > 1) { qty--; document.getElementById('qty-val').textContent = qty; } });
+    document.getElementById('qty-plus').addEventListener('click', () => { qty++; document.getElementById('qty-val').textContent = qty; });
+    document.getElementById('detail-add-cart').addEventListener('click', () => addToCart(p.id, selectedSize, qty));
+
+    initTabs();
+
+    const related = PRODUCTS.filter(rp => rp.category === p.category && rp.id !== p.id).slice(0, 4);
+    renderProductGrid(related.length ? related : PRODUCTS.filter(rp => rp.id !== p.id).slice(0, 4), '#related-grid');
+    refreshReveal();
+  }
+
+  render();
+})();
+</script>
+</body>
+</html>
