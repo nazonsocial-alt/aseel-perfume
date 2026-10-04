@@ -1,0 +1,118 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Your Cart | ASEEL Perfume</title>
+<meta name="description" content="Review the fragrances in your ASEEL cart, update quantities, apply a coupon, and proceed to checkout.">
+<meta name="robots" content="noindex">
+<link rel="icon" href="data:image/svg+xml,<svg xmlns=%22http://www.w3.org/2000/svg%22 viewBox=%220 0 100 100%22><text y=%22.9em%22 font-size=%2290%22>\u2728</text></svg>">
+<link rel="stylesheet" href="css/style.css">
+<link rel="stylesheet" href="css/responsive.css">
+</head>
+<body>
+
+<header class="navbar">
+  <div class="container nav-inner">
+    <a href="index.html" class="nav-logo">ASEEL<span>.</span></a>
+    <nav class="nav-links">
+      <a href="index.html">Home</a><a href="shop.html">Shop</a><a href="about.html">About</a><a href="contact.html">Contact</a>
+    </nav>
+    <div class="nav-actions">
+      <button class="btn btn-outline" style="padding:10px 22px" onclick="location.href='shop.html'">Continue Shopping</button>
+      <a href="cart.html" class="nav-icon-btn" aria-label="Cart">&#128717;<span class="cart-count">0</span></a>
+      <button class="nav-toggle" aria-label="Open menu"><span></span><span></span><span></span></button>
+    </div>
+  </div>
+</header>
+
+<div class="mobile-menu">
+  <button class="mobile-menu-close" aria-label="Close menu">&times;</button>
+  <a href="index.html">Home</a><a href="shop.html">Shop</a><a href="about.html">About</a><a href="contact.html">Contact</a><a href="cart.html">Cart</a>
+</div>
+
+<header class="page-header">
+  <div class="container">
+    <h1>Your Cart</h1>
+    <div class="breadcrumb"><a href="index.html">Home</a> / Cart</div>
+  </div>
+</header>
+
+<main>
+<section>
+  <div class="container">
+
+    <div class="empty-cart hidden" id="empty-cart">
+      <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1"><circle cx="9" cy="21" r="1"/><circle cx="20" cy="21" r="1"/><path d="M1 1h4l2.68 13.39a2 2 0 0 0 2 1.61h9.72a2 2 0 0 0 2-1.61L23 6H6"/></svg>
+      <h2>Your cart is empty</h2>
+      <p>Looks like you haven't added any fragrances yet.</p>
+      <a href="shop.html" class="btn btn-primary">Start Shopping</a>
+    </div>
+
+    <div class="cart-layout" id="cart-layout">
+      <div>
+        <table class="cart-table">
+          <thead><tr><th>Product</th><th>Price</th><th>Quantity</th><th>Subtotal</th></tr></thead>
+          <tbody id="cart-items-body"></tbody>
+        </table>
+        <form id="coupon-form" class="coupon-row">
+          <input type="text" placeholder="Enter coupon code (try ASEEL10)">
+          <button type="submit" class="btn btn-outline">Apply</button>
+        </form>
+        <div id="coupon-msg" style="font-size:0.85rem"></div>
+      </div>
+
+      <div class="summary-box">
+        <h3>Order Summary</h3>
+        <div class="summary-row"><span>Subtotal</span><span id="summary-subtotal">&#09F3;0</span></div>
+        <div class="summary-row"><span>Discount</span><span id="summary-discount">-&#09F3;0</span></div>
+        <div class="summary-row"><span>Shipping</span><span id="summary-shipping">Free</span></div>
+        <div class="summary-row total"><span>Total</span><span id="summary-total">&#09F3;0</span></div>
+        <a href="checkout.html" class="btn btn-primary btn-block">Proceed to Checkout</a>
+      </div>
+    </div>
+  </div>
+</section>
+</main>
+
+<footer class="footer">
+  <div class="container">
+    <div class="footer-grid">
+      <div class="footer-col">
+        <div class="footer-logo">ASEEL<span>.</span></div>
+        <p>A premium Bangladeshi perfume house crafting luxury fragrances for men and women. Luxury in every drop.</p>
+        <div class="social-row">
+          <a href="https://facebook.com" target="_blank" rel="noopener" aria-label="Facebook">f</a>
+          <a href="https://instagram.com" target="_blank" rel="noopener" aria-label="Instagram">ig</a>
+          <a href="https://wa.me/8801XXXXXXXXX" target="_blank" rel="noopener" aria-label="WhatsApp">wa</a>
+        </div>
+      </div>
+      <div class="footer-col">
+        <h4>Quick Links</h4>
+        <ul><li><a href="index.html">Home</a></li><li><a href="shop.html">Shop</a></li><li><a href="about.html">About Us</a></li><li><a href="contact.html">Contact</a></li></ul>
+      </div>
+      <div class="footer-col">
+        <h4>Categories</h4>
+        <ul><li><a href="shop.html?category=Men">Men</a></li><li><a href="shop.html?category=Women">Women</a></li><li><a href="shop.html?category=Unisex">Unisex</a></li><li><a href="shop.html">All Products</a></li></ul>
+      </div>
+      <div class="footer-col">
+        <h4>Customer Service</h4>
+        <ul><li><a href="cart.html">My Cart</a></li><li><a href="privacy.html">Privacy Policy</a></li><li><a href="terms.html">Terms &amp; Conditions</a></li><li><a href="contact.html">Contact Us</a></li></ul>
+      </div>
+    </div>
+    <div class="footer-bottom">
+      <span>&copy; <span class="current-year"></span> ASEEL Perfume. All rights reserved.</span>
+      <div class="footer-legal"><a href="privacy.html">Privacy</a><a href="terms.html">Terms</a></div>
+    </div>
+  </div>
+</footer>
+
+<script src="js/products.js"></script>
+<script src="js/cart.js"></script>
+<script src="js/main.js"></script>
+<script>
+  renderCartPage();
+  initCouponForm();
+</script>
+</body>
+</html>
